@@ -15,27 +15,26 @@ body.append(div);
 
 function createGrid(){
     for (let i = 0; i < 16 * 16; i++){
-        let square = document.createElement("squares");
-        square.style.width = "16px";
-        square.style.height = "16px";
-        square.style.outline = "1px dotted lightblue";
-        div.append(square);
+        let squares = document.createElement("squares");
+        squares.style.width = "16px";
+        squares.style.height = "16px";
+        squares.style.outline = "1px dotted lightblue";
+        div.append(squares);
+        squares.addEventListener("mouseover", applyHoverEffect);
+        squares.addEventListener("mouseout", removeHoverEffect);
     }
 }
 
 //Hover effect for grid
 
 //Start effect
-const squares = document.querySelector("squares");
-squares.addEventListener("mouseover", applyHoverEffect);
+let squares = document.querySelector("squares");
 
 function applyHoverEffect(){
     squares.style.backgroundColor = "lightblue"; 
 }
 
 //End effect
-squares.addEventListener("mouseout", removeHoverEffect);
-
 function removeHoverEffect(){
     squares.style.backgroundColor = "";
 }
