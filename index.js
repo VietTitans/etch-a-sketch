@@ -27,7 +27,7 @@ function createGrid(){
 
 //Start effect
 const squares = document.querySelector("squares");
-squares.addEventListener("mouserover", applyHoverEffect);
+squares.addEventListener("mouseover", applyHoverEffect);
 
 function applyHoverEffect(){
     squares.style.backgroundColor = "lightblue"; 
@@ -35,6 +35,7 @@ function applyHoverEffect(){
 
 //End effect
 squares.addEventListener("mouseout", removeHoverEffect);
+
 function removeHoverEffect(){
     squares.style.backgroundColor = "";
 }
