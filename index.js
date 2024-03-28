@@ -9,7 +9,8 @@ div.style.flexWrap = "wrap";
 div.style.height = "16em";
 div.style.width = "16em";
 
-//squares
+
+setGridButton();
 createGrid();
 body.append(div);
 
@@ -39,4 +40,20 @@ function applyHoverEffect(){
 
 function removeHoverEffect(){
     this.style.backgroundColor = "";
+}
+
+function setGridButton(){
+    //Create button container
+    const btnContainer = document.createElement("div");
+    btnContainer.style.display = "flex";
+    btnContainer.style.alignItems = "center";
+    document.body.appendChild(btnContainer);
+
+    // //Create button element
+    const button = document.createElement("button");
+    button.textContent = "New grid"
+    //document.btnContainer.appendChild(button);          //When appling this line, the whole grid disapperas
+
+    // //Set styling
+    const btn = document.querySelector("button");
 }
