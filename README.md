@@ -1,2 +1,2 @@
 # etch-a-sketch
-The purpose of this project is to practice my skill that I have gain though out The Odin Project curriculum.
+The purpose of this project is practice DOM manipulation only using Javascript.
