@@ -47,13 +47,15 @@ function setGridButton(){
     const btnContainer = document.createElement("div");
     btnContainer.style.display = "flex";
     btnContainer.style.alignItems = "center";
-    document.body.appendChild(btnContainer);
+    // btnContainer.style.justifyContent = "center";
+    btnContainer.style.marginTop = "10px";
+    btnContainer.style.marginBottom = "10px";
 
-    // //Create button element
+    document.body.append(btnContainer);
+
+    //Create button element
     const button = document.createElement("button");
-    button.textContent = "New grid"
-    //document.btnContainer.appendChild(button);          //When appling this line, the whole grid disapperas
-
-    // //Set styling
-    const btn = document.querySelector("button");
+    button.textContent = "New grid";
+    
+    btnContainer.appendChild(button);           //Adding the button onto the button container
 }
