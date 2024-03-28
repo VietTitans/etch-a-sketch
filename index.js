@@ -9,7 +9,7 @@ div.style.flexWrap = "wrap";
 div.style.height = "16em";
 div.style.width = "16em";
 
-
+getUserInput();
 setGridButton();
 createGrid();
 body.append(div);
@@ -57,5 +57,29 @@ function setGridButton(){
     const button = document.createElement("button");
     button.textContent = "New grid";
     
-    btnContainer.appendChild(button);           //Adding the button onto the button container
+    btnContainer.appendChild(button);
+}
+
+function getUserInput(){
+    let userInput = prompt("Please enter number (1-100) of squares per side");
+    
+    if (!isNaN(userInput) && isInLimit){
+        let number = parseInt(userInput);
+        removeExistingGrid();
+    } else {
+        alert("Invalid input. Please enter a valid number");
+    }
+}
+
+function removeExistingGrid(){
+    //To do: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
+}
+
+function isInLimit(){
+    let maxLimit = 100;
+    let minLimit = 0;
+
+    if (userInput < maxLimit && userInput > minLimit){
+        return true;
+    }
 }
