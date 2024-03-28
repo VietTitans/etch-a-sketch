@@ -62,24 +62,28 @@ function setGridButton(){
 
 function getUserInput(){
     let userInput = prompt("Please enter number (1-100) of squares per side");
-    
-    if (!isNaN(userInput) && isInLimit){
-        let number = parseInt(userInput);
-        removeExistingGrid();
-    } else {
+    let inputNumber = parseInt(userInput);
+
+    while (!isInLimit){
         alert("Invalid input. Please enter a valid number");
-    }
+    } 
+    removeGrid();
+    console.log("Hello World")
 }
 
-function removeExistingGrid(){
-    //To do: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
-}
+//To do: Figure how to check probably
 
-function isInLimit(){
+// function removeGrid(){
+//     //To do: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
+//     for (let i = 0; i < 16 * 16; i++){
+//         let squares = document.createElement("div");
+//         div.append(squares);
+//     }
+// }
+
+function isInLimit(inputNumber){
+    let minLimit = 1;
     let maxLimit = 100;
-    let minLimit = 0;
 
-    if (userInput < maxLimit && userInput > minLimit){
-        return true;
-    }
+    return inputNumber >= minLimit && inputNumber <= maxLimit;
 }
