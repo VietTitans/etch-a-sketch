@@ -71,7 +71,7 @@ function getUserInput(){
     console.log("Hello World")
 }
 
-//To do: Figure how to check probably
+//TODO: Figure how to check probably
 
 // function removeGrid(){
 //     //To do: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
