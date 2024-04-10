@@ -56,21 +56,29 @@ function setGridButton(){
     //Create button element
     const button = document.createElement("button");
     button.textContent = "New grid";
-    
     btnContainer.appendChild(button);
 }
 
 function getUserInput(){
+    //TODO Keep looping until valid int in parsed.
     let userInput = prompt("Please enter number (1-100) of squares per side");
-    let inputNumber = parseInt(userInput);
-
     while (!isInLimit){
         alert("Invalid input. Please enter a valid number");
-    } 
-    removeGrid();
-    console.log("Hello World")
+    }
+        removeGrid();
+        setGridButton();
+        createGrid();
 }
 
+function isInLimit(){
+    isInLimit = false;
+    let minLimit = 1;
+    let maxLimit = 100;
+    if (userInput >= minLimit && userInput <= maxLimit)
+    {
+        return true;
+    }
+}
 //TODO: Figure how to check probably
 
 // function removeGrid(){
@@ -80,10 +88,3 @@ function getUserInput(){
 //         div.append(squares);
 //     }
 // }
-
-function isInLimit(inputNumber){
-    let minLimit = 1;
-    let maxLimit = 100;
-
-    return inputNumber >= minLimit && inputNumber <= maxLimit;
-}
