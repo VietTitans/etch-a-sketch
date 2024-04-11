@@ -1,3 +1,4 @@
+
 const body = document.body;
 const div = document.createElement("div");
 
@@ -9,13 +10,43 @@ div.style.flexWrap = "wrap";
 div.style.height = "16em";
 div.style.width = "16em";
 
+
 getUserInput();
-setGridButton();
-createGrid();
+createGrid_();
 body.append(div);
 
-function createGrid(){
-    for (let i = 0; i < 16 * 16; i++){
+function getUserInput(){
+    //TODO Keep looping until valid int in parsed.
+    // let userInput = prompt("Please enter number (1-100) of squares per side");
+    // while (!isInLimit){
+    //     alert("Invalid input. Please enter a valid number");
+    //     let userInput = prompt("Please enter number (1-100) of squares per side");
+    // }
+    //     return userInput;
+    
+    let userInput; 
+    while(isInLimit_){
+        userInput = prompt("Please enter number (1-100) of squares per side ");
+        if(!isNaN(userInput) && isInLimit_) {
+            break;
+        } else {
+            alert("Invalid input. Please enter a number.");
+        }
+    }
+    return userInput = parseInt(userInput);
+}
+
+function isInLimit_(){
+    isInLimit_ = true;
+    let minLimit = 1;
+    let maxLimit = 100;
+    return userInput >= minLimit && userInput <= maxLimit;
+}
+
+function createGrid_(){
+    userInput = getUserInput();
+    
+    for (let i = 0; i < userInput * userInput; i++){
         let squares = document.createElement("div");
         squares.className = "square";
         squares.style.width = "16px";
@@ -34,15 +65,15 @@ squares.forEach(squares => {
     squares.addEventListener("mouseout", removeHoverEffect);
 });
 
-function applyHoverEffect(){
+function applyHoverEffect_(){
     this.style.backgroundColor = "lightblue"; 
 }
 
-function removeHoverEffect(){
+function removeHoverEffect_(){
     this.style.backgroundColor = "";
 }
 
-function setGridButton(){
+function setGridButton_(){
     //Create button container
     const btnContainer = document.createElement("div");
     btnContainer.style.display = "flex";
@@ -59,26 +90,6 @@ function setGridButton(){
     btnContainer.appendChild(button);
 }
 
-function getUserInput(){
-    //TODO Keep looping until valid int in parsed.
-    let userInput = prompt("Please enter number (1-100) of squares per side");
-    while (!isInLimit){
-        alert("Invalid input. Please enter a valid number");
-    }
-        removeGrid();
-        setGridButton();
-        createGrid();
-}
-
-function isInLimit(){
-    isInLimit = false;
-    let minLimit = 1;
-    let maxLimit = 100;
-    if (userInput >= minLimit && userInput <= maxLimit)
-    {
-        return true;
-    }
-}
 //TODO: Figure how to check probably
 
 // function removeGrid(){
