@@ -2,7 +2,7 @@
 const body = document.body;
 const div = document.createElement("div");
 
-getUserInput();
+let userInput = getUserInput();
 setGridButton();
 createGrid();
 body.append(div); //Grid div
@@ -24,6 +24,7 @@ function getUserInput(){
             break;
         }
     }
+    return userInput;
 }
 
 function createGrid(){
@@ -33,8 +34,8 @@ function createGrid(){
         squares.style.width = "16px";
         squares.style.height = "16px";
         squares.style.outline = "1px dotted lightblue";
-        squares.addEventListener("mouseout", _);
         squares.addEventListener("mouseover", applyHoverEffect_);
+        squares.addEventListener("mouseout", removeHoverEffect_);
         div.append(squares);
     }
 }
