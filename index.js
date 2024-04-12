@@ -2,8 +2,10 @@
 const body = document.body;
 const div = document.createElement("div");
 
-let userInput = getUserInput();
-
+getUserInput();
+createGrid();
+body.append(div); //Grid div
+setGridButton();
 
 //Container for squares
 div.style.outline = "10px";
@@ -13,34 +15,34 @@ div.style.flexWrap = "wrap";
 div.style.height = userInput + "em";
 div.style.width = userInput + "em";
 
-
-createGrid();
-setGridButton();
-body.append(div); //Grid div
-
 function getUserInput(){
+    // userInput = prompt("Please enter number (1-100) of squares per side ");
+    
+    // while (!isValidInput_(userInput)){
+    //     if(isValidInput_) {
+    //         break;
+    //     } else {
+    //         alert("Invalid input. Please enter a number.");
+    //     }
+    // }
+    // return userInput = parseInt(userInput);
     let userInput;
-    while(isInLimit_){
+    while (true){
         userInput = prompt("Please enter number (1-100) of squares per side ");
-        if(!isNaN(userInput) && isInLimit_) {
+
+        if(userInput !== null && !isNaN(userInput) && userInput >= 1 && userInput <= 100){
             break;
-        } else {
-            alert("Invalid input. Please enter a number.");
         }
     }
-    return userInput = parseInt(userInput);
 }
 
-function isInLimit_(){
-    isInLimit_ = true;
-    let minLimit = 1;
-    let maxLimit = 100;
-    return userInput >= minLimit || userInput <= maxLimit;
-}
+// function isValidInput_(){
+    // if (!isNaN(userInput) && userInput !== null || userInput >= 1 || userInput <= 100){
+        // return true;
+    // }
+// }
 
 function createGrid(){
-    //  userInput = getUserInput();
-
     for (let i = 0; i < userInput * userInput; i++){
         let squares = document.createElement("div");
         squares.className = "square";
@@ -87,7 +89,7 @@ function setGridButton(){
 //TODO: Figure how to check probably
 
 // function removeGrid(){
-//     //To do: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
+//     //TODO: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
 //     for (let i = 0; i < 16 * 16; i++){
 //         let squares = document.createElement("div");
 //         div.append(squares);
