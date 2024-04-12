@@ -3,9 +3,9 @@ const body = document.body;
 const div = document.createElement("div");
 
 getUserInput();
+setGridButton();
 createGrid();
 body.append(div); //Grid div
-setGridButton();
 
 //Container for squares
 div.style.outline = "10px";
@@ -16,31 +16,15 @@ div.style.height = userInput + "em";
 div.style.width = userInput + "em";
 
 function getUserInput(){
-    // userInput = prompt("Please enter number (1-100) of squares per side ");
-    
-    // while (!isValidInput_(userInput)){
-    //     if(isValidInput_) {
-    //         break;
-    //     } else {
-    //         alert("Invalid input. Please enter a number.");
-    //     }
-    // }
-    // return userInput = parseInt(userInput);
     let userInput;
     while (true){
         userInput = prompt("Please enter number (1-100) of squares per side ");
-
+        
         if(userInput !== null && !isNaN(userInput) && userInput >= 1 && userInput <= 100){
             break;
         }
     }
 }
-
-// function isValidInput_(){
-    // if (!isNaN(userInput) && userInput !== null || userInput >= 1 || userInput <= 100){
-        // return true;
-    // }
-// }
 
 function createGrid(){
     for (let i = 0; i < userInput * userInput; i++){
@@ -66,7 +50,7 @@ function applyHoverEffect_(){
     this.style.backgroundColor = "lightblue"; 
 }
 
-function _(){
+function removeHoverEffect_(){
     this.style.backgroundColor = "";
 }
 
@@ -87,7 +71,6 @@ function setGridButton(){
 }
 
 //TODO: Figure how to check probably
-
 // function removeGrid(){
 //     //TODO: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
 //     for (let i = 0; i < 16 * 16; i++){
