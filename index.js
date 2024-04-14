@@ -73,27 +73,25 @@ function setGridButton(){
     btnContainer.addEventListener("click", updateGrid_)
 }
 
+function updateGrid_(){
+    removeGrid_();
+    
+    //TODO DRY. Refactor this
+    // let userInput = getUserInput();
+    // setGridButton();
+    // createGrid();
+    // body.append(gridContainer); //Grid div
+}
+
 function removeGrid_(){
     //TODO: Implement remove button and squares
     const squares = gridContainer.querySelectorAll("squares")
-    let gridContainer = gridContainer.querySelector("gridContainer");
     const button = body.querySelector("button");
+    gridContainer = gridContainer.querySelector("gridContainer");
     
-    
+    button.remove();
+
     squares.forEach(gridContainer => {
         gridContainer.classList.remove("squares");
     });
-    
-    button.remove();
-}
-
-function updateGrid_(){
-    removeGrid_();
-    createGrid();
-    
-    //TODO DRY. Refactor this
-    let userInput = getUserInput();
-    setGridButton();
-    createGrid();
-    body.append(gridContainer); //Grid div
 }
