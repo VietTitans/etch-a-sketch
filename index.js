@@ -1,13 +1,14 @@
 
 const body = document.body;
-const gridContainer = document.createElement("div");
+let gridContainer = document.createElement("div");
 
 let userInput = getUserInput();
 setGridButton();
 createGrid();
-body.append(gridContainer); //Grid div>
+body.append(gridContainer);
 
-//Attributes for squares
+//Attributes for container
+gridContainer.className = "gridContainer";
 gridContainer.style.outline = "10px";
 gridContainer.style.outlineColor = "blue";
 gridContainer.style.display = "flex";
@@ -69,23 +70,28 @@ function setGridButton(){
     const button = document.createElement("button");
     button.textContent = "New grid";
     btnContainer.appendChild(button);
-    btnContainer.addEventListener("click", updateGrid)
+    btnContainer.addEventListener("click", updateGrid_)
 }
 
-// function removeGrid_(){
-//     //TODO: Implement remove button and squares
-//     const gridContainer = gridContainer.querySelector("div");
-//     const childDivs = div.querySelectorAll("div.squares")
-//     childDivs.forEach(div => {
-//         div.classList.remove("squares");
-//     });
-// }
+function removeGrid_(){
+    //TODO: Implement remove button and squares
+    const squares = gridContainer.querySelectorAll("squares")
+    let gridContainer = gridContainer.querySelector("gridContainer");
+    const button = body.querySelector("button");
+    
+    
+    squares.forEach(gridContainer => {
+        gridContainer.classList.remove("squares");
+    });
+    
+    button.remove();
+}
 
-function updateGrid(){
+function updateGrid_(){
     removeGrid_();
     createGrid();
-
-    //TODO repetition. Refactor this
+    
+    //TODO DRY. Refactor this
     let userInput = getUserInput();
     setGridButton();
     createGrid();
