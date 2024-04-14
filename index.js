@@ -87,7 +87,6 @@ function updateGrid_(){
 }
 
 function removeGrid_(){
-    //TODO: Implement remove button and squares
     const button = body.querySelector("button");
     button.remove();
     
