@@ -19,7 +19,7 @@ function getUserInput(){
     let userInput;
     while (true){
         userInput = prompt("Please enter number (1-100) of squares per side ");
-        
+
         if(userInput !== null && !isNaN(userInput) && userInput >= 1 && userInput <= 100){
             break;
         }
@@ -48,7 +48,7 @@ squares.forEach(squares => {
 });
 
 function applyHoverEffect_(){
-    this.style.backgroundColor = "lightblue"; 
+    this.style.backgroundColor = "lightblue";
 }
 
 function removeHoverEffect_(){
@@ -56,7 +56,7 @@ function removeHoverEffect_(){
 }
 
 function setGridButton(){
-    //Create button container
+    //Button container
     const btnContainer = document.createElement("div");
     btnContainer.style.display = "flex";
     btnContainer.style.alignItems = "center";
@@ -65,17 +65,29 @@ function setGridButton(){
     btnContainer.style.marginBottom = "10px";
     document.body.append(btnContainer);
 
-    //Create button element
+    //Button element
     const button = document.createElement("button");
     button.textContent = "New grid";
     btnContainer.appendChild(button);
+    btnContainer.addEventListener("click", updateGrid)
 }
 
-//TODO: Figure how to check probably
-// function removeGrid(){
-//     //TODO: Remove grid by using something like: gridContainer.parentNode.removeChild(gridContainer);
-//     for (let i = 0; i < 16 * 16; i++){
-//         let squares = document.createElement("div");
-//         div.append(squares);
-//     }
-// }
+function updateGrid(){
+    removeGrid_();
+    createGrid();
+
+    //TODO repetition. Refactor this
+    let userInput = getUserInput();
+    setGridButton();
+    createGrid();
+    body.append(div); //Grid div
+}
+
+//TODO: Implement remove button and squares
+function removeGrid_(){
+    // let gridContainer = squares.remove("div");
+
+    // while (gridContainer.firstChild){
+        // gridContainer.removeChild(gridContainer.firstChild);
+    // }
+}
