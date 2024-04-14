@@ -67,7 +67,9 @@ function hoverEffect(){
 }
 
 function applyHoverEffect_(){
-    this.style.backgroundColor = "lightblue";
+    //Random color generator. 
+    //TODO: Refactor into a function
+    this.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0"); 
 }
 
 function removeHoverEffect_(){
