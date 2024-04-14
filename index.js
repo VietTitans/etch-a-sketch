@@ -28,34 +28,6 @@ function getUserInput(){
     return userInput;
 }
 
-function createGrid(){
-    for (let i = 0; i < userInput * userInput; i++){
-        let squares = document.createElement("div");
-        squares.className = "square";
-        squares.style.width = "16px";
-        squares.style.height = "16px";
-        squares.style.outline = "1px dotted lightblue";
-        squares.addEventListener("mouseover", applyHoverEffect_);
-        squares.addEventListener("mouseout", removeHoverEffect_);
-        gridContainer.append(squares);
-    }
-}
-
-//Hover effect for grid
-let squares = document.querySelectorAll(".squares");
-squares.forEach(squares => {
-    squares.addEventListener("mouseover", applyHoverEffect_);
-    squares.addEventListener("mouseout", removeHoverEffect_);
-});
-
-function applyHoverEffect_(){
-    this.style.backgroundColor = "lightblue";
-}
-
-function removeHoverEffect_(){
-    this.style.backgroundColor = "";
-}
-
 function setGridButton(){
     //Button container
     const btnContainer = document.createElement("div");
@@ -73,10 +45,39 @@ function setGridButton(){
     btnContainer.addEventListener("click", updateGrid_)
 }
 
+function createGrid(){
+    for (let i = 0; i < userInput * userInput; i++){
+        let squares = document.createElement("div");
+        squares.className = "square";
+        squares.style.width = "16px";
+        squares.style.height = "16px";
+        squares.style.outline = "1px dotted lightblue";
+        squares.addEventListener("mouseover", applyHoverEffect_);
+        squares.addEventListener("mouseout", removeHoverEffect_);
+        gridContainer.append(squares);
+    }
+}
+
+function hoverEffect(){
+    let squares = document.querySelectorAll(".squares");
+    squares.forEach(squares => {
+        squares.addEventListener("mouseover", applyHoverEffect_);
+        squares.addEventListener("mouseout", removeHoverEffect_);
+    });
+}
+
+function applyHoverEffect_(){
+    this.style.backgroundColor = "lightblue";
+}
+
+function removeHoverEffect_(){
+    this.style.backgroundColor = "";
+}
+
 function updateGrid_(){
     removeGrid_();
     
-    //TODO DRY. Refactor this
+    // //TODO DRY. Refactor this
     // let userInput = getUserInput();
     // setGridButton();
     // createGrid();
@@ -85,13 +86,9 @@ function updateGrid_(){
 
 function removeGrid_(){
     //TODO: Implement remove button and squares
-    const squares = gridContainer.querySelectorAll("squares")
     const button = body.querySelector("button");
-    gridContainer = gridContainer.querySelector("gridContainer");
-    
     button.remove();
-
-    squares.forEach(gridContainer => {
-        gridContainer.classList.remove("squares");
-    });
+    
+    const squares = gridContainer.querySelectorAll(".squares");
+    //TODO: Remove squares in gridContainer:   
 }
