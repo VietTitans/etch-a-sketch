@@ -1,19 +1,19 @@
 
 const body = document.body;
-const div = document.createElement("div");
+const gridContainer = document.createElement("div");
 
 let userInput = getUserInput();
 setGridButton();
 createGrid();
-body.append(div); //Grid div
+body.append(gridContainer); //Grid div>
 
-//Container for squares
-div.style.outline = "10px";
-div.style.outlineColor = "blue";
-div.style.display = "flex";
-div.style.flexWrap = "wrap";
-div.style.height = userInput + "em";
-div.style.width = userInput + "em";
+//Attributes for squares
+gridContainer.style.outline = "10px";
+gridContainer.style.outlineColor = "blue";
+gridContainer.style.display = "flex";
+gridContainer.style.flexWrap = "wrap";
+gridContainer.style.height = userInput + "em";
+gridContainer.style.width = userInput + "em";
 
 function getUserInput(){
     let userInput;
@@ -36,7 +36,7 @@ function createGrid(){
         squares.style.outline = "1px dotted lightblue";
         squares.addEventListener("mouseover", applyHoverEffect_);
         squares.addEventListener("mouseout", removeHoverEffect_);
-        div.append(squares);
+        gridContainer.append(squares);
     }
 }
 
@@ -72,6 +72,15 @@ function setGridButton(){
     btnContainer.addEventListener("click", updateGrid)
 }
 
+// function removeGrid_(){
+//     //TODO: Implement remove button and squares
+//     const gridContainer = gridContainer.querySelector("div");
+//     const childDivs = div.querySelectorAll("div.squares")
+//     childDivs.forEach(div => {
+//         div.classList.remove("squares");
+//     });
+// }
+
 function updateGrid(){
     removeGrid_();
     createGrid();
@@ -80,14 +89,5 @@ function updateGrid(){
     let userInput = getUserInput();
     setGridButton();
     createGrid();
-    body.append(div); //Grid div
-}
-
-//TODO: Implement remove button and squares
-function removeGrid_(){
-    // let gridContainer = squares.remove("div");
-
-    // while (gridContainer.firstChild){
-        // gridContainer.removeChild(gridContainer.firstChild);
-    // }
+    body.append(gridContainer); //Grid div
 }
